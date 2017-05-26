@@ -1,0 +1,30 @@
+//#include <stdio.h>
+
+    int main()
+    {
+        long long int a,c;
+        int i=0,count=0;
+        char bol[10000];
+        scanf("%lld", &a);
+        c = a;
+        while(a!=0)
+        {
+            bol[i] = a%2;
+            a = a / 2;
+            count++;
+            i++;
+        }
+        if(c==0)
+        {
+            printf("0");
+        }
+        else
+        {
+            for(i=count-1; i>=0; i--)
+            {
+                printf("%d", bol[i]);
+            }
+        }
+        printf("\n");
+        return 0;
+    }

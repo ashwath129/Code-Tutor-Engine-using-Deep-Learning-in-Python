@@ -1,0 +1,100 @@
+/*
+#include <stdio.h>
+
+#include <string.h>
+
+#include <ctype.h>
+*/
+ 
+
+struct detail
+
+{
+
+    char c;
+
+    int freq;
+
+};
+
+ 
+
+int main()
+
+{
+
+    struct detail s[26];
+
+    char string[100], c;
+
+    int i = 0, index;
+
+ 
+
+    for (i = 0; i < 26; i++)
+
+    {
+
+       s[i].c = i + 'a';
+
+       s[i].freq = 0;
+
+    }
+
+    printf("Enter string: ");
+
+    i = 0;
+
+    do
+
+    {
+
+        fflush(stdin);
+
+        c = getchar();
+
+        string[i++] = c;
+
+        if (c == '\n')
+
+        {
+
+            break;
+
+        }
+
+        c = tolower(c);
+
+        index = c - 'a';
+
+        s[index].freq++;
+
+    } while (1);
+
+    string[i - 1] = '\0';
+
+    printf("The string entered is: %s\n", string);
+
+ 
+
+    printf("*************************\nCharacter\tFrequency\n*************************\n");
+
+    for (i = 0; i < 26; i++)
+
+    {
+
+        if (s[i].freq)
+
+        {
+
+            printf("     %c\t\t   %d\n", s[i].c, s[i].freq);
+
+        }
+
+    }
+
+ 
+
+    return 0;
+
+}

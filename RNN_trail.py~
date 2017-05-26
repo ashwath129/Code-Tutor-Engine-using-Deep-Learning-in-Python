@@ -1,0 +1,95 @@
+import tensorflow as tf
+
+#--------------------------------------------------------------------#
+
+# FIRST STEP IS TO DESIGN THE RNN
+
+#--------------------------------------------------------------------#
+
+# Configure input data characteristics
+
+# tf.float32 -> data type
+# None -> batch size
+# None -> Sequence length
+# 1 -> Number of dimensions in input
+
+data = tf.placeholder(tf.float32, [None, None, 1])
+
+# tf.float32 -> data type
+# None -> batch size
+# 43 -> Length of output vector (Nothing but the number of classes)
+
+target = tf.placeholder(tf.float32, [None, 43]
+
+# Number of hidden LSTM cells
+
+num_hidden = 2
+
+# Configure the LSTM cell
+# tf.nn.rnn_cell.LSTMCell.__init__(num_units, input_size=None, use_peepholes=False, cell_clip=None, initializer=None, num_proj=None, num_unit_shards=1, num_proj_shards=1, forget_bias=1.0, state_is_tuple=False, activation=tanh)
+
+cell = tf.nn.rnn_cell.LSTMCell(num_hidden, state_is_tuple=True)
+
+# Configure the RNN for the LSTM
+# tf.nn.dynamic_rnn(cell, inputs, sequence_length=None, initial_state=None, dtype=None, parallel_iterations=None, swap_memory=False, time_major=False, scope=None)
+
+val, state = tf.nn.dynamic_rnn(cell, data, dtype=tf.float32)
+
+# Convert the result to desired form
+
+val = tf.transpose(Val, [1, 0, 2])
+last = tf.gather(val, int(val.get_shape()[0])-1)
+
+# Allocate space for weights and biases
+
+# truncated_normal is used to generate random numbers with normal distribution, to a vector of size num_hidden * number of classes
+
+weight = tf.Variable(tf.truncated_normal([num_hidden, int(target.get_shape()[1])]))
+
+bias = tf.Variable(tf.constant(0.1, shape=[target.get_shape()[1]]))
+
+# Prediction
+
+# tf.nn.softmax(logits, dim=-1, name=None)
+
+prediction = tf.nn.softmax(tf.matmul(last, weight)+bias)
+
+# Calculate cross entropy
+
+# tf.reduce_sum(input_tensor, axis=None, keep_dims=False, name=None, reduction_indices=None)
+
+# Calculates sum of elements across dimensions of a tensor
+
+cross_entropy = -tf.reduce_sum(target * tf.log(prediction))
+
+# Adding the log term helps in penalizing the model more if it is terribly wrong and very little when the prediction is close to the target
+
+# Optimizer
+
+# tf.train.AdamOptimizer.__init__(learning_rate=0.001, beta1=0.9, beta2=0.999, epsilon=1e-08, use_locking=False, name='Adam')
+
+optimizer = tf.train.AdamOptimizer()
+
+minimize = optimizer.minimize(cross_entropy)
+
+#--------------------------------------------------------------------#
+
+# DESIGNING THE RNN IS OVER. NOW, EXECUTION PHASE #
+
+#--------------------------------------------------------------------#
+
+# TRAINING PHASE
+
+init_op = tf.initialize_all_variables()
+sess = tf.Session()
+sess.run(init_op)
+
+ptr = 0
+for i in range(no_of_sequences):
+	inp, out = ###This is the pending part###
+	sess.run(minimize, {data:inp, target:out}
+sess.close()
+
+# PREDICTION
+
+

@@ -1,0 +1,21 @@
+#include<stdio.h> 
+#include<conio.h> 
+int main() 
+{ 
+    int a[20]; 
+    int dec,i=0;
+    printf("Enter the decimal number to find its binary number\n"); 
+    scanf("%d",&dec); 
+    while(dec>0) 
+    { 
+         a[i]=dec%2; 
+         i++; 
+         dec=dec/2;
+    }
+    printf("Binary number of %d is = ",dec); 
+    for(int j=i-1;j>=0;j--) 
+    {
+          printf("%d",a[j]);
+    }
+	return 0; 
+}

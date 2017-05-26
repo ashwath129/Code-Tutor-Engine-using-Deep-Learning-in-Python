@@ -1,0 +1,10 @@
+//#include<stdio.h>
+ 
+void main() {
+   int i = 0;
+   Start: i = i + 1;
+   printf("%d", i);
+ 
+   if (i <= 10)
+      goto Start;
+}
