@@ -78,8 +78,8 @@ def predict():
 
 	# 2.9 Configure the initialize all variables function
 
-	init_op = tf.initialize_all_variables()
-
+	#init_op = tf.initialize_all_variables()
+	init_op = tf.global_variables_initializer()
 
 	#-------------------------------------------------------------------------------------------------------------------------------------#
 	
