@@ -78,8 +78,8 @@ def predict():
 
 	# 2.9 Configure the initialize all variables function
 
-	init_op = tf.initialize_all_variables()
-
+	#init_op = tf.initialize_all_variables()
+	init_op = tf.global_variables_initializer()
 
 	#-------------------------------------------------------------------------------------------------------------------------------------#
 	
@@ -92,7 +92,8 @@ def predict():
 	sess.run(init_op)
 
 	# 3.2 Create the graph summary writer
-	writer = tf.train.SummaryWriter("logs/",sess.graph)
+	#writer = tf.train.SummaryWriter("logs/",sess.graph)
+	writer = tf.summary.FileWriter("logs/",sess.graph)
 
 	# 3.3 Load the syntax check matrix into list of lists
 	matrix=[]
