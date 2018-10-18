@@ -1,0 +1,39 @@
+#include<stdio.h>
+void main()
+{
+	long int a,temp=0;
+	int b,c=0,d,i,j,e,n;
+	printf("enter the number : \n");
+	scanf("%ld",&a);
+	temp=a;
+	while(temp!=0)
+	{	
+		b=temp%10;
+		c=c+b;
+		temp=temp/10;
+	}
+	i=c;
+	while(i>0)
+	{ 
+		i=i/10;
+	  	j++;
+	}
+	n=c;
+	if(j>1)
+	{	
+		while(n!=0)
+		{
+			d=n%10;
+			e=e+d;
+			n=n/10;
+		}
+	}
+	else
+	{
+		printf("the ans is %d",c);}
+		if(j>1)
+		{	
+			printf("the ans is : %d",e);}
+		}
+	}
+}	

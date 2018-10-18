@@ -1,0 +1,25 @@
+#include <stdio.h>
+#define SIZE 6
+main()
+{
+ int int_array[SIZE], *p_int, i;
+ float float_array[SIZE], *p_float;
+ char char_array[SIZE], *p_char;
+ double double_array[SIZE], *p_double;
+ /* initialize pointers */
+ p_int = int_array;
+ p_float = float_array;
+ p_char = char_array;
+ p_double = double_array;
+ /* print out hexadecimal address locations of the array elements - include leading 0 */
+ printf(" INDEX\t\t int_array\t float_array\t char_array\t double_array\n");
+ for (i = 0; i < SIZE; i++)
+ printf("p_type + %d: \t %0X \t %0X \t %0X \t %0X \n",
+ i, p_int + i, p_float + i, p_char + i, p_double + i);
+ /* again, print out address locations of the array elements */
+ printf("\n");
+ printf(" INDEX\t\t int_array\t float_array\t char_array\t double_array\n");
+ for (i = 0; i < SIZE; i++)
+ printf("p_type + %d: \t %0X \t %0X \t %0X \t %0X \n",
+ i, p_int++, p_float++, p_char++, p_double++);
+}

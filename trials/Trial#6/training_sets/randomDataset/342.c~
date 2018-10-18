@@ -1,0 +1,15 @@
+#include<stdio.h>
+ 
+int main() {
+   char ch;
+ 
+   printf("\nEnter The Character : ");
+   scanf("%c", &ch);
+ 
+   if (ch >= 65 && ch <= 90)
+      printf("Character is Upper Case Letters");
+   else
+      printf("Character is Not Upper Case Letters");
+ 
+   return (0);
+}

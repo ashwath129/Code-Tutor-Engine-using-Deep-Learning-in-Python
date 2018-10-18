@@ -1,0 +1,8 @@
+//#include<stdio.h>
+void main() {
+	float f, c;
+	printf("Enter thetemperature in celsius scale:");
+	scanf("%f", &c);
+	f = 9 * c / 5 + 32;
+	printf("Fahreheit is=%f", f);
+} /* End program */
