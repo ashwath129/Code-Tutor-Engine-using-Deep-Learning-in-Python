@@ -1,8 +1,0 @@
-python3.4 ASTProducer.py training_sets/dectobin/dtob1.c
-python3.4 convertToNumber.py
-python3.4 ASTProducer.py training_sets/dectobin/dtob2.c
-python3.4 convertToNumber.py
-python3.4 ASTProducer.py training_sets/dectobin/dtob3.c
-python3.4 convertToNumber.py
-python3.4 ASTProducer.py training_sets/dectobin/dtob4.c
-python3.4 convertToNumber.py
